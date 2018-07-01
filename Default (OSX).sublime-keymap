@@ -1,0 +1,8 @@
+[
+	{"keys": ["f4"], "command": "go_lime_delete_file"},
+	{"keys": ["f8"], "command": "go_lime_add_tests"},
+	{"keys": ["f9"], "command": "go_lime_add_import"},
+	{"keys": ["f10"], "command": "go_lime_reload"},
+	// {"keys": ["f11"], "command": "go_lime_reload"},
+	{"keys": ["f12"], "command": "go_lime_godef"},
+]
