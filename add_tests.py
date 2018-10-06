@@ -1,7 +1,7 @@
-import sublime
+# import sublime
 import sublime_plugin
 
-from .cmd import run_cmd
+from . import cmd
 
 
 class GoLimeAddTestsCommand(sublime_plugin.TextCommand):
@@ -12,12 +12,23 @@ class GoLimeAddTestsCommand(sublime_plugin.TextCommand):
             print("Available only for *.go files")
             return
 
-        res, err = run_cmd("gotest", {
+        funcname = None
+        for s in self.view.sel():
+            funcname = self.view.substr(self.view.word(s))
+            break
+
+        if funcname is None:
+            print("Funcname not found")
+            return
+
+        # print("funcname", funcname)
+        # return
+
+        res = cmd.run_cmd("gotest", {
             "file": filename,
-            "function": "Run",
+            "function": funcname,
         })
-        if err is None:
-            testpaths = res["test_files"]
-            if testpaths is not None and len(testpaths) > 0:
-                self.view.window().open_file(testpaths[0])
-        print(res, err)
+        testpaths = res["test_files"]
+        if testpaths is not None and len(testpaths) > 0:
+            self.view.window().open_file(testpaths[0])
+        print(res)
