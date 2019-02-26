@@ -56,11 +56,11 @@ class GoLimeGodefCommand(sublime_plugin.TextCommand):
         pcmd = subprocess.Popen(["godef", "-f", filename, "-o", str(x)], stdout=subprocess.PIPE)
         out, _ = pcmd.communicate()
         out = out.decode("utf-8")
+        print("out", out)  # parseLocalPackage error: no more package files found
         if pcmd.returncode != 0:
             print("wrong return code", pcmd.returncode)
             return False
         if out == "":
             return False
-        print("out", out)  # parseLocalPackage error: no more package files found
         self.view.window().open_file(out, sublime.ENCODED_POSITION)
         return True
