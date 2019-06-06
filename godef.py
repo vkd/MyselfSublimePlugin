@@ -16,7 +16,7 @@ class GoLimeGodefCommand(sublime_plugin.TextCommand):
 
         x = None
         for s in self.view.sel():
-            x = s.a
+            x = len(self.view.substr(sublime.Region(0, s.a)).encode("utf8"))
             break
 
         if x is None:
