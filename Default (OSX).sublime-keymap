@@ -12,4 +12,6 @@
 	{"keys": ["super+l", "super+g"], "command": "go_lime_godef"},
 	{"keys": ["super+l", "super+c"], "command": "go_lime_add_comments"},
 
+	{"keys": ["super+l", "super+e"], "command": "eval_custom_py"}
+
 ]
