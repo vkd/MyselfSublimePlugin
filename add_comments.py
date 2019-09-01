@@ -11,7 +11,10 @@ class GoLimeAddCommentsCommand(sublime_plugin.TextCommand):
         if not self.filename.endswith(".go"):
             print("Allowed only '.go' file: ", self.filename)
             return
-        res = cmd.run_cmd("add_comments", {"file": self.filename})
+        res = cmd.run_cmd("add_comments", {
+            "file": self.filename,
+            "isRuneCount": True,
+        })
         if res["status"] != "ok":
             print("Wrong result status:", res)
             return
