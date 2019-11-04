@@ -28,6 +28,9 @@ def goimports_cmd(view, edit):
         # p.stdin.write(content)
         out, _ = p.communicate(input=content.encode())
         out = out.decode("utf-8")
+        if len(out) == 0:
+            print("goimports: empty response")
+            return
         # out, _ = subprocess.Popen(["goimports", "-srcdir", filename], stdout=subprocess.PIPE).communicate()
         # print("saved:", out)
         view.replace(edit, region, out)
