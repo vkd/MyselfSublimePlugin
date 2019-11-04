@@ -1,5 +1,6 @@
 [
-	{"keys": ["f2"], "command": "go_lime_godef"},
+	{"keys": ["f2"], "command": "lsp_symbol_definition"},
+	{"keys": ["f3"], "command": "jump_back" },
 	{"keys": ["f4"], "command": "go_lime_delete_file"},
 	{"keys": ["f8"], "command": "go_lime_add_tests"},
 	{"keys": ["f9"], "command": "go_lime_add_import"},
