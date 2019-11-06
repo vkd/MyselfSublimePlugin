@@ -6,6 +6,8 @@ from . import cmd
 
 GOLIME_CMD = ["golime", "-s"]
 
+_playground = None
+
 
 def start_golime():
     def _start():
